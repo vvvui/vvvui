@@ -11,7 +11,7 @@ vvPopWindow <br>
 vvColorPicker <br>
 ---------- include modules end ---------- <br><br>
 vvResizeObject <br>
-<div style="padding:10px; border:1px solid #fdfdfd;">
+<p style="padding:10px; border:1px solid #fdfdfd;">
 	new vvResizeObject({
 		domId : "#obj1", // dom id
 		limit : 1, // 是否限制拖动范围
@@ -25,4 +25,4 @@ vvResizeObject <br>
 			console.log("touchUp");  // return position x position y
 		}
 	});
-</div>
+</p>
