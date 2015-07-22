@@ -2,7 +2,7 @@
 /* jQuery touch */
 $.fn.extend({
 	bindTouch : function(callback,that){
-		if(isMobile){
+		if(vvMobile){
 			this.bind("touchstart",function(event){
 				event.preventDefault();
 				callback(this,that);
@@ -19,7 +19,7 @@ $.fn.extend({
 $.fn.extend({
 	bindTouchGroup : function(object){
 		var touchObj = this[0];
-		if(isMobile){ /* mobile */
+		if(vvMobile){ /* mobile */
 			/* touch start */
 			touchObj.addEventListener('touchstart', function(event){
 				object.touchDown(event.targetTouches[0],touchObj);
@@ -63,7 +63,7 @@ $.fn.extend({
 $.fn.extend({
 	bindMultiTouch : function(object){
 		var touchObj = this[0];
-		if(isMobile){ /* mobile */
+		if(vvMobile){ /* mobile */
 			/* touch start */
 			touchObj.addEventListener('touchstart', function(event){
 				object.touchDown(event.targetTouches,touchObj);
@@ -105,29 +105,29 @@ $.fn.extend({
 });
 
 $.fn.extend({
-	uuAnimate : function(param,uuCallBack,liveingObj,acParam){
+	vvAnimate : function(param,vvCallBack,liveingObj,acParam){
 		if(!param){
 			return;
 		}
 		if(this.an){
 			delete this.an;
 		}
-		this.an = new uuAnimation(this,param,uuCallBack,acParam);
+		this.an = new vvAnimation(this,param,vvCallBack,acParam);
 		if(liveingObj){
 			liveingObj.animate = this.an;
 		}
 	}
 });
-$.fn.uuAnimation = $.fn.uuAnimate;
+$.fn.vvAnimation = $.fn.vvAnimate;
 
 /* schedule */
-var uuSchedule = function(callBack,fps){
+var vvSchedule = function(callBack,fps){
 		this.fps = fps || 60;
 		this.fps = parseInt(1000/this.fps,10);
 		this.callBack = callBack || function(){};
 		this.start();
 	}
-	uuSchedule.prototype = {
+	vvSchedule.prototype = {
 		start : function(){
 			var sTime = 0;
 			var nTime = 0;
@@ -150,8 +150,8 @@ var uuSchedule = function(callBack,fps){
 		}
 	}
 
-/* uuGetAnimateData */
-var uuGetAnimateData = function(aStart,aEnd,tEnd,tween,rate,tBegin){
+/* vvGetAnimateData */
+var vvGetAnimateData = function(aStart,aEnd,tEnd,tween,rate,tBegin){
 		var aStart,aEnd,rate,tBegin,tEnd,backArr,aChange,tween;
 		aStart = aStart || 0;
 		aEnd   = aEnd   || aEnd == 0 ? aEnd : 1;
@@ -159,7 +159,7 @@ var uuGetAnimateData = function(aStart,aEnd,tEnd,tween,rate,tBegin){
 		tBegin = tBegin || 0;
 		tEnd   = tEnd   || 100;
 		aChange = aEnd - aStart;
-		tween   = tween || uuTween.Cubic.easeOut;
+		tween   = tween || vvTween.Cubic.easeOut;
 		backArr = [];
 		while(tBegin < tEnd){
 			backArr.push(tween(tBegin,aStart,aChange,tEnd));
@@ -171,7 +171,7 @@ var uuGetAnimateData = function(aStart,aEnd,tEnd,tween,rate,tBegin){
 		return backArr;
 	}
 	
-var uuGetAnimateData2 = function(aStart,aEnd,tEnd,tween){
+var vvGetAnimateData2 = function(aStart,aEnd,tEnd,tween){
 	var sum = aStart;
 	var moveArr = [];
 	while(sum != aEnd){
@@ -186,8 +186,8 @@ var uuGetAnimateData2 = function(aStart,aEnd,tEnd,tween){
 	return moveArr;
 }
 
-/* uuAnimate */
-var uuAnimation = function(object,param,uuCallBack,acParam){
+/* vvAnimate */
+var vvAnimation = function(object,param,vvCallBack,acParam){
 	if(!object || !param){
 		return;
 	}
@@ -196,7 +196,7 @@ var uuAnimation = function(object,param,uuCallBack,acParam){
 	this.acParam = acParam || {};
 	this.delay = this.acParam.delay || 0;
 	this.loop  = this.acParam.loop  || this.acParam.loop == 0 ? this.acParam.loop : 1;
-	this.uuCallBack = uuCallBack || function(){};
+	this.vvCallBack = vvCallBack || function(){};
 	this.acTime = this.acParam.acTime || 1000;
 	this.fps = this.acParam.fps || 60;
 	this.tweenId = this.acParam.tween  || this.acParam.tween == 0 ? this.acParam.tween : 22;
@@ -205,7 +205,7 @@ var uuAnimation = function(object,param,uuCallBack,acParam){
 	this.tEnd  = this.acTime / (1000/this.fps);
 	this.init();
 }
-uuAnimation.prototype = {
+vvAnimation.prototype = {
 	init : function(){
 		if(this.loop == 0 || this.loopNum < this.loop){
 			this.aParam = {};
@@ -236,9 +236,9 @@ uuAnimation.prototype = {
 		}
 		this.aParam[key] = this.aParam[key] || this.aParam[key] == 0 ? this.aParam[key] : aStart;
 		if(this.tween){
-			this.aData[key] = uuGetAnimateData(this.aParam[key],this.param[key],this.tEnd,this.tween);
+			this.aData[key] = vvGetAnimateData(this.aParam[key],this.param[key],this.tEnd,this.tween);
 		}else{
-			this.aData[key] = uuGetAnimateData2(this.aParam[key],this.param[key],10,this.tweenId);
+			this.aData[key] = vvGetAnimateData2(this.aParam[key],this.param[key],10,this.tweenId);
 		}
 		if(dataType == 2){
 			var scale,rotateX,rotateY,rotateZ;
@@ -316,7 +316,7 @@ uuAnimation.prototype = {
 		// action
 		var that = this;
 		that.doAnimate = 0;
-		this.schedule = new uuSchedule(function(o){
+		this.schedule = new vvSchedule(function(o){
 			for(var k in that.aData){
 				if(that.aDataType[k] == 1 || that.aDataType[k] == 2 || !that.aDataType[k]){
 					if(o.acNum >= that.aData[k].length && that.aLive[k]){
@@ -376,7 +376,7 @@ uuAnimation.prototype = {
 			if(that.doAnimate >= that.totalAnimate || o.acNum > 1200){ // maxFrame 1200
 				o.stop();
 				that.init();
-				that.uuCallBack();
+				that.vvCallBack();
 			}
 		});
 	},
@@ -399,13 +399,13 @@ uuAnimation.prototype = {
 		}
 		this.aData[key] = [];
 		if(this.tween){
-			this.aData[key][0] = uuGetAnimateData(beginColorArr[0],endColorArr[0],this.tEnd,this.tween);
-			this.aData[key][1] = uuGetAnimateData(beginColorArr[1],endColorArr[1],this.tEnd,this.tween);
-			this.aData[key][2] = uuGetAnimateData(beginColorArr[2],endColorArr[2],this.tEnd,this.tween);
+			this.aData[key][0] = vvGetAnimateData(beginColorArr[0],endColorArr[0],this.tEnd,this.tween);
+			this.aData[key][1] = vvGetAnimateData(beginColorArr[1],endColorArr[1],this.tEnd,this.tween);
+			this.aData[key][2] = vvGetAnimateData(beginColorArr[2],endColorArr[2],this.tEnd,this.tween);
 		}else{
-			this.aData[key][0] = uuGetAnimateData2(beginColorArr[0],endColorArr[0],10,this.tweenId);
-			this.aData[key][1] = uuGetAnimateData2(beginColorArr[1],endColorArr[1],10,this.tweenId);
-			this.aData[key][2] = uuGetAnimateData2(beginColorArr[2],endColorArr[2],10,this.tweenId);
+			this.aData[key][0] = vvGetAnimateData2(beginColorArr[0],endColorArr[0],10,this.tweenId);
+			this.aData[key][1] = vvGetAnimateData2(beginColorArr[1],endColorArr[1],10,this.tweenId);
+			this.aData[key][2] = vvGetAnimateData2(beginColorArr[2],endColorArr[2],10,this.tweenId);
 		}
 		this.object.css(key,'rgb(' + beginColorArr[0] + ',' + beginColorArr[1] + ',' + beginColorArr[2] + ')');
 		this.totalAnimate += 1;
@@ -433,44 +433,44 @@ uuAnimation.prototype = {
 	},
 	getTween : function(tweenId){
 		var tweenArr = {
-			"0"  : uuTween.Linear,
-			"1"  : uuTween.Quad.easeIn,
-			"2"  : uuTween.Quad.easeOut,
-			"3"  : uuTween.Quad.easeInOut,
-			"11" : uuTween.Cubic.easeIn,
-			"12" : uuTween.Cubic.easeOut,
-			"13" : uuTween.Cubic.easeInOut,
-			"21" : uuTween.Quart.easeIn,
-			"22" : uuTween.Quart.easeOut,
-			"23" : uuTween.Quart.easeInOut,
-			"31" : uuTween.Quint.easeIn,
-			"32" : uuTween.Quint.easeOut,
-			"33" : uuTween.Quint.easeInOut,
-			"41" : uuTween.Sine.easeIn,
-			"42" : uuTween.Sine.easeOut,
-			"43" : uuTween.Sine.easeInOut,
-			"51" : uuTween.Expo.easeIn,
-			"52" : uuTween.Expo.easeOut,
-			"53" : uuTween.Expo.easeInOut,
-			"61" : uuTween.Circ.easeIn,
-			"62" : uuTween.Circ.easeOut,
-			"63" : uuTween.Circ.easeInOut,
-			"71" : uuTween.Elastic.easeIn,
-			"72" : uuTween.Elastic.easeOut,
-			"73" : uuTween.Elastic.easeInOut,
-			"81" : uuTween.Back.easeIn,
-			"82" : uuTween.Back.easeOut,
-			"83" : uuTween.Back.easeInOut,
-			"91" : uuTween.Bounce.easeIn,
-			"92" : uuTween.Bounce.easeOut,
-			"93" : uuTween.Bounce.easeInOut
+			"0"  : vvTween.Linear,
+			"1"  : vvTween.Quad.easeIn,
+			"2"  : vvTween.Quad.easeOut,
+			"3"  : vvTween.Quad.easeInOut,
+			"11" : vvTween.Cubic.easeIn,
+			"12" : vvTween.Cubic.easeOut,
+			"13" : vvTween.Cubic.easeInOut,
+			"21" : vvTween.Quart.easeIn,
+			"22" : vvTween.Quart.easeOut,
+			"23" : vvTween.Quart.easeInOut,
+			"31" : vvTween.Quint.easeIn,
+			"32" : vvTween.Quint.easeOut,
+			"33" : vvTween.Quint.easeInOut,
+			"41" : vvTween.Sine.easeIn,
+			"42" : vvTween.Sine.easeOut,
+			"43" : vvTween.Sine.easeInOut,
+			"51" : vvTween.Expo.easeIn,
+			"52" : vvTween.Expo.easeOut,
+			"53" : vvTween.Expo.easeInOut,
+			"61" : vvTween.Circ.easeIn,
+			"62" : vvTween.Circ.easeOut,
+			"63" : vvTween.Circ.easeInOut,
+			"71" : vvTween.Elastic.easeIn,
+			"72" : vvTween.Elastic.easeOut,
+			"73" : vvTween.Elastic.easeInOut,
+			"81" : vvTween.Back.easeIn,
+			"82" : vvTween.Back.easeOut,
+			"83" : vvTween.Back.easeInOut,
+			"91" : vvTween.Bounce.easeIn,
+			"92" : vvTween.Bounce.easeOut,
+			"93" : vvTween.Bounce.easeInOut
 		};
 		return tweenArr[tweenId.toString()] || 0;
 	}
 }
 
-/* uuTween */
-var uuTween = {
+/* vvTween */
+var vvTween = {
 	Linear : function(t, b, c, d){
 		return c*t/d + b;
 	},
@@ -618,7 +618,7 @@ var uuTween = {
     },
     Bounce : {
         easeIn : function(t, b, c, d) {
-            return c - uuTween.Bounce.easeOut(d-t, 0, c, d) + b;
+            return c - vvTween.Bounce.easeOut(d-t, 0, c, d) + b;
         },
         easeOut : function(t, b, c, d) {
             if ((t /= d) < (1 / 2.75)) {
@@ -633,9 +633,9 @@ var uuTween = {
         },
         easeInOut : function(t, b, c, d) {
             if (t < d / 2) {
-                return uuTween.Bounce.easeIn(t * 2, 0, c, d) * .5 + b;
+                return vvTween.Bounce.easeIn(t * 2, 0, c, d) * .5 + b;
             } else {
-                return uuTween.Bounce.easeOut(t * 2 - d, 0, c, d) * .5 + c * .5 + b;
+                return vvTween.Bounce.easeOut(t * 2 - d, 0, c, d) * .5 + c * .5 + b;
             }
         }
     }

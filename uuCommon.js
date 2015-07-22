@@ -1,28 +1,28 @@
 
 /* get Dom id */
-var $Id = function (id) {
+var vvId = function (id) {
 		return "string" == typeof id ? document.getElementById(id) : id;
 	};
 
-/* browser check */
-var isIe = (function(){
+/* IE Check */
+var vvIe = (function(){
 		var isIe = (document.all) ? true : false;
 		return isIe;
 	})();
 
 /* isMobile check */
-var isMobile = (function(){
+var vvMobile = (function(){
 		var u = navigator.userAgent;
 		return u.match(/AppleWebKit.*Mobile.*/i) ? true : false;
 	})();
 
-var isWebKit = (function(){
+var vvWebKit = (function(){
 		var u = navigator.userAgent;
 		return u.match(/WebKit/i) ? true : false;
 	})();
 
 /* require */
-var uuGetFileDir = function(baseFileName){
+var vvGetFileDir = function(baseFileName){
 		var jsDom = document.scripts;
 		var themeDirBack;
 		var jLen = jsDom.length;
@@ -34,7 +34,7 @@ var uuGetFileDir = function(baseFileName){
 		return themeDirBack;
 	}
 
-var uuRequire = function(url){
+var vvRequire = function(url){
 		var head = document.getElementsByTagName("head")[0];
 		var regScript = /^.*\.js$/i;
 		if(regScript.test(url)){
@@ -55,41 +55,37 @@ var uuRequire = function(url){
 		}
 	}
 	
-/* uuSocketLog */
-var uuSocketLog = function (url){
+/* vvSocketLog */
+var vvSocketLog = function (url){
 	this.ws = new WebSocket("ws://" + url + ":8080");
 	this.ws.onopen = function(){
 		console.log("handshake");
 	}
 	this.ws.onmessage = function(e){
 		var data = eval('(' + e.data + ')');
-		// $("#uuMultiTouch").css({
-			// left : parseInt(data.logContent)
-		// });
 		console.log(data.logContent);
-		// console.log($("#uuMultiTouch"));
 	}
 	this.ws.onerror = function(){
 		console.log("error");
 	}
 	this.ws.onclose = function(){
-		//ws = false;
+		// ws = false;
 	}
 	this.show = function(logContent){
 		this.ws.send('{"command":"log","action":"showLog","logContent":"' + logContent + '"}');
 	}
 }
 
-/* uuLoader initialize */
-var uuLoader = function (callBack,fileList){
+/* vvLoader initialize */
+var vvLoader = function (callBack,fileList){
 		var fLen = fileList.length;
 		var loadId = 0;
 		var require = function(){
-			var loadFile = uuRequire(fileList[loadId]);
+			var loadFile = vvRequire(fileList[loadId]);
 			var regCss = /^.*\.css$/i;
 			var regScript = /^.*\.js$/i;
 			if(regCss.test(fileList[loadId])){
-				uuStyleOnload(loadFile,function(){
+				vvStyleOnload(loadFile,function(){
 					loadId ++;
 					if(loadId < fLen){
 						require();
@@ -98,7 +94,7 @@ var uuLoader = function (callBack,fileList){
 					}
 				});
 			}else if(regScript.test(fileList[loadId])){
-				if(isIe){
+				if(vvIe){
 					loadFile.onreadystatechange = function(e){
 						if(loadFile.readyState == "loaded"){
 							loadId ++;
@@ -125,17 +121,17 @@ var uuLoader = function (callBack,fileList){
 	}
 
 /* css onload check */
-var uuStyleOnload = function(node,callback){
+var vvStyleOnload = function(node,callback){
 		if(node.attachEvent){ // for IE6-9 and Opera
 			node.attachEvent('onload',callback);
 		}else {
 			setTimeout(function(){
-				uuPoll(node, callback);
+				vvPoll(node, callback);
 			},0); // for cache
 		}
 	}
 
-var uuPoll = function(node,callback){
+var vvPoll = function(node,callback){
 		if(callback.isCalled){
 			return;
 		}
@@ -161,7 +157,7 @@ var uuPoll = function(node,callback){
 			},1);
 		}else{
 			setTimeout(function() {
-				uuPoll(node,callback);
+				vvPoll(node,callback);
 			}, 1);
 		}
 	}
