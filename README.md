@@ -10,5 +10,5 @@ vvSlider <br>
 vvPopWindow <br>
 vvColorPicker <br>
 ---------- include modules end ---------- <br><br>
-<h3>vvResizeObject demo </h3><br>
+<h3>vvResizeObject demo </h3>
 (http://vvvui.github.io/demo/vvResizeObject/)
