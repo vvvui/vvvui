@@ -1,3 +1,5 @@
+var winWidth = $(window).width();
+var winHeight = $(window).height();
 
 /* jQuery touch */
 $.fn.extend({

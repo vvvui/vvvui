@@ -1,4 +1,3 @@
-
 /* get Dom id */
 var vvId = function (id) {
 		return "string" == typeof id ? document.getElementById(id) : id;

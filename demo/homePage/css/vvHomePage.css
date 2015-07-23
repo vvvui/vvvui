@@ -1,0 +1,12 @@
+.vvHomeScene {
+	width    : 850px;
+	padding  : 5px;
+	margin   : 0px auto;
+}
+
+.demoList {
+	margin : 5px;
+	width  : 140px;
+	background-color : #ffffff;
+	float  : left;
+}
