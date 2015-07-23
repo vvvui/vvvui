@@ -156,11 +156,7 @@ var wH = 540;
 				}
 				/* move outSide */
 				var that = this;
-<<<<<<< HEAD
 				if(!vvMobile){
-=======
-				if(!isMobile){
->>>>>>> c0d9adb7e9cb1814b211f474d8e22bb8d376bc2f
 					if(that.it){
 						clearTimeout(that.it);
 						that.it = null;
