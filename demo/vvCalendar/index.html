@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>vvCalendar</title>
+		<link href="../../vvCommon.css?v=2" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../../vvCommon.js"></script>
+		<script type="text/javascript" src="../../ext/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../../ext/vvExt.js"></script>
+		<!-- vvCalendar -->
+		<link href="css/vvCalendar.css?v=2" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/src/vvCalendar.js?v=1"></script>
+	</head>
+	<body>
+	
+		<!-- vvScene -->
+		<div class="vvScene">
+			<!-- vvCalendar -->
+			<div class="vvCalendar" id="vvCalendar">
+				<div class="header">
+					<div class="title">vvCalendar</div>
+				</div>
+				<div class="calenderContent">
+					<div class="dateControlBar clearFix">
+						<div class="preMonth"><div class="triangleLeft unSelect"></div></div>
+						<div class="vvCalendarShow"></div>
+						<div class="nextMonth"><div class="triangleRight unSelect"></div></div>
+					</div>
+					<div class="vvCalendarTitle clearFix">
+						<div class="titleTagBk">
+							<div class="titleTag">%Tag%</div>
+						</div>
+					</div>
+					<div class="vvCalendarDate clearFix">
+						<div class="tagBk">
+							<div class="tag" id="%Id%">
+								<div class="dateShow">%Tag%</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- vvCalendar end -->
+		</div>
+		
+		<script>
+			/**
+				使用方法
+				1、创建一个定宽的DOM 例如vvScene
+				2、将控件DOM放入第一步创建的DOM内
+				3、执行以下JS
+			*/
+			$(function(){
+				var calendar = new vvCalendar({
+					callBack : function(date){
+						calendar.showDate = date.date;
+						calendar._setClass();
+						alert(calendar.showDate);
+					}
+				});
+				/**
+				// 完整调用API
+				var calendar = new vvCalendar({
+					showType : 0, // 设置显示模式 0或不设显示上月与下月日期 1不显示非当月时间
+					limit : 1,  // 是否限制可点击日期 1为限制 0或不设为不限
+					enableBegin : 0, // 可点击开始日期 格式 2015-07-23 当limit设置为1时有效
+					enableEnd : 0, // 可点击结束日期 格式 2015-08-23 当limit设置为1时有效
+					showDate : "2015-07-23", // 日历默认选中日期
+					showDays : 30, // 限制显示天数 当limit设置为1并且未设置enableEnd时有效
+					callBack : function(date){ // 点击返回函数 返回一个date对象 具体参数可以console.log输出查看
+						calendar.showDate = date.date; // 点击返回日期 
+						calendar._setClass(); // 改变选中样式
+						// callBack date
+						alert(calendar.showDate);
+					}
+				});
+				*/
+			});
+			
+		</script>
+		
+		<!-- demo框架布局，可删除 -->
+		<div class="vvMenu">
+			<div><img width="100%" src="images/qrCode.jpg"></div>
+			<div class="vvDownLoad">
+				<a href="https://github.com/vvvui/vvvui">
+					<div class="vvDownLoadIcon"><img width="100%" src="../../images/downloadIcon.png"></div>
+					<div class="vvDownLoadText">下载源码</div>
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../vvDemo.js"></script>
+	</body>
+</html>

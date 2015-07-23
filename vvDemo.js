@@ -5,8 +5,8 @@ if(vvMobile){
 }else{
 	$(".vvScene").append('<div class="backBtn"><div class="backIcon"></div></div>');
 	$(".backBtn").vvAnimate({
-		right : -20,
-		top   : -20
+		right : -40,
+		top   : -40
 	});
 }
 $(".backBtn").bindTouch(function(){
