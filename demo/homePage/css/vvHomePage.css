@@ -4,6 +4,10 @@
 	margin   : 0px auto;
 }
 
+.homeTitle {
+	width : 100%;
+}
+
 .demoList {
 	margin : 5px;
 	width  : 140px;
@@ -11,6 +15,28 @@
 	background-color : #ffffff;
 	float  : left;
 	overflow : hidden;
+}
+
+.demoGroup {
+	width : 100%;
+	margin-top : 60px;
+}
+
+.downBtn {
+	width : 200px;
+	height : 40px;
+	color  : #ffffff;
+	font-size : 16px;
+	text-align : center;
+	line-height : 40px;
+	border-radius : 5px;
+	background-color : #00acec;
+	float : right;
+	cursor : pointer;
+}
+
+.downBtn:active {
+	background-color : #6fd6fd;
 }
 
 .demoThumb {
