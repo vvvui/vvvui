@@ -5,10 +5,6 @@ $(function(){
 		$(".demoList").css({
 			width : 145
 		});
-		$(".demoGroup").css({
-			"margin-top" : 0
-		});
-		$(".homeTitle").hide();
 	}
 	$(".vvHomeScene").css({
 		width : homeWidth
