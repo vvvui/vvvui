@@ -156,7 +156,7 @@ var wH = 540;
 				}
 				/* move outSide */
 				var that = this;
-				if(!isMobile){
+				if(!vvMobile){
 					if(that.it){
 						clearTimeout(that.it);
 						that.it = null;
