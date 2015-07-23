@@ -219,8 +219,6 @@ vvAnimation.prototype = {
 				that.loopNum ++;
 				clearTimeout(to);
 			},this.delay);
-		}else{
-			delete this;
 		}
 	},
 	initData : function(key,defaultStart,dataType){
