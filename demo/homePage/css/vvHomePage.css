@@ -7,6 +7,37 @@
 .demoList {
 	margin : 5px;
 	width  : 140px;
+	height  : 170px;
 	background-color : #ffffff;
 	float  : left;
+	overflow : hidden;
+}
+
+.demoThumb {
+	height   : 140px;
+	overflow : hidden;
+}
+
+.demoThumb img {
+	height : 100%;
+	margin : 0px;
+	padding : 0px;
+}
+
+.demoThumbText {
+	height : 29px;
+	line-height : 29px;
+	text-align : center;
+	color : #00b5f9;
+	cursor : pointer;
+	border-top : 1px solid #8e7a7b;
+}
+
+a {
+	color : #00b5f9;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #f0018c;
 }
