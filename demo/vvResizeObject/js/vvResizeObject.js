@@ -142,10 +142,12 @@ var wH = 540;
 					eT = eT < maxT ? eT : maxT;
 				}
 				/* limit end */
-				$(obj).css({
-					"left" : eL,
-					"top"  : eT
-				});
+				if(changeX || changeY){
+					$(obj).css({
+						"left" : eL,
+						"top"  : eT
+					});
+				}
 				if(this.moveCallBack){
 					var bo = {};
 					bo.eL = eL;
