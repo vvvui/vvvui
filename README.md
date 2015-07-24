@@ -1,6 +1,9 @@
 # vvVui
 a light weight web frame
 
+<h3>vvvui demo </h3>
+(http://vvvui.github.io)<br>
+
 ---------- include modules ---------- <br>
 vvResizeObject <br>
 vvCalendar <br>
@@ -10,7 +13,3 @@ vvSlider <br>
 vvPopWindow <br>
 vvColorPicker <br>
 ---------- include modules end ---------- <br><br>
-<h3>vvResizeObject demo </h3>
-(http://vvvui.github.io/demo/vvResizeObject/)<br>
-<h3>vvResizeObject demo </h3>
-(http://vvvui.github.io/demo/vvCalendar/)<br>

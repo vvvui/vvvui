@@ -4,7 +4,7 @@ $(function(){
 	(function(){
 		var demoData = {
 			vvSlider : {
-				name : "拖动切页",
+				name : "拖动切页Slider",
 				picUrl : "demo/homePage/images/thumb/vvSlider.jpg",
 				link : "demo/vvSlider/"
 			},
