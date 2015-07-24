@@ -3,6 +3,11 @@ $(function(){
 	// demoList initialize
 	(function(){
 		var demoData = {
+			vvSlider : {
+				name : "拖动切页",
+				picUrl : "demo/homePage/images/thumb/vvSlider.jpg",
+				link : "demo/vvSlider/"
+			},
 			vvCalendar : {
 				name : "日历控件",
 				picUrl : "demo/homePage/images/thumb/vvCalendar.jpg",

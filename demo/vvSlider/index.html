@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>vvSlider</title>
+		<link href="../../core/vvCommon.css?v=2" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../../core/vvCommon.js"></script>
+		<script type="text/javascript" src="../../core/ext/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../../core/ext/vvExt.js"></script>
+		<!-- vvSlider -->
+		<link href="css/vvSlider.css?v=2" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/vvSlider.js?v=1"></script>
+	</head>
+	<body>
+	
+		<!-- vvSlider -->
+		<div class="vvScene">
+			<div id="vvSlider" class="vvSlider">
+				<!-- mainFrames -->
+				<div id="slideFrames">
+					<div class="sp unSelect">
+						<div class="pageTagBg"></div>
+						<div class="pageTag">1</div>
+						<div class="frameBg"><img src="images/1.jpg"></div>
+						<div class="sliderContent">
+							
+						</div>
+					</div>
+					<div class="sp unSelect">
+						<div class="pageTagBg"></div>
+						<div class="pageTag">2</div>
+						<div class="frameBg"><img src="images/2.jpg"></div>
+						<div class="sliderContent">
+							
+						</div>
+					</div>
+					<div class="sp unSelect">
+						<div class="pageTagBg"></div>
+						<div class="pageTag">3</div>
+						<div class="frameBg"><img src="images/3.jpg"></div>
+						<div class="sliderContent">
+							
+						</div>
+					</div>
+					<div class="sp unSelect">
+						<div class="pageTagBg"></div>
+						<div class="pageTag">4</div>
+						<div class="frameBg"><img src="images/4.jpg"></div>
+						<div class="sliderContent">
+							
+						</div>
+					</div>
+					<div class="sp unSelect">
+						<div class="pageTagBg"></div>
+						<div class="pageTag">5</div>
+						<div class="frameBg"><img src="images/5.jpg"></div>
+						<div class="sliderContent">
+							
+						</div>
+					</div>
+				</div>
+				<!-- mainFrames end -->
+			</div>
+			
+			<!-- 这个区域的代码为可选区域 不需要可删除 仅做示范用 -->
+			<div id="e1" style="position:absolute; z-index:10000; top:10px; left:50px;">效果1</div>
+			<div id="e2" style="position:absolute; z-index:10000; top:10px; left:125px;">效果2</div>
+			<div id="e3" style="position:absolute; z-index:10000; top:10px; left:200px;">效果3</div>
+			
+			<div style="width:300px; position:absolute; z-index:10000; bottom:10px; left:10px;">
+				<div id="preFrame" style="float:left;">上一页</div>
+				<div id="FrameCode" style="float:left;">
+					<div class="sliderFrameId" style="float:left; padding-left:20px;">1</div>
+					<div class="sliderFrameId" style="float:left; padding-left:20px;">2</div>
+					<div class="sliderFrameId" style="float:left; padding-left:20px;">3</div>
+					<div class="sliderFrameId" style="float:left; padding-left:20px;">4</div>
+					<div class="sliderFrameId" style="float:left; padding-left:20px;">5</div>
+				</div>
+				<div id="nextFrame" style="float:right;">下一页</div>
+			</div>
+			<!-- 这个区域的代码为可选区域 不需要可删除 仅做示范用 -->
+			
+		</div>
+		
+		<script>
+			/**
+				使用方法
+				增加页面在mainFrames区域添加一个<div class="sp unSelect"></div>就可以了 里面的内容由个人随意设定
+			*/
+			$(function(){
+				// 初始化
+				var slider = new vvSlider({
+					domId  : "vvSlider", // domId
+					theme  : 0, // 默认效果 目前支持3种效果 编号0 1 2
+					loop   : 1, // 是否循环
+					callBack : function(showId){
+						console.log(showId); // 切页完毕回调函数返回当前页ID
+					}
+				});
+				// 设置页码(非必须) 个人根据需求选择
+				slider.setSlideControl();
+				
+				// 切换效果
+				$("#e1").bindTouch(function(){
+					slider.theme = 0; // 重设风格ID
+					slider.themeInit(2); // 重载风格文件
+					var to = setTimeout(function(){
+						slider.showNextFrame(0,slider); // 切到下一页 此处需延迟一下触发
+					},500);
+				});
+				$("#e2").bindTouch(function(){
+					slider.theme = 1;
+					slider.themeInit(2);
+					var to = setTimeout(function(){
+						slider.showNextFrame(0,slider);
+					},500);
+				});
+				$("#e3").bindTouch(function(){
+					slider.theme = 2;
+					slider.themeInit(2);
+					var to = setTimeout(function(){
+						slider.showNextFrame(0,slider);
+					},500);
+				});
+				
+			});
+			
+		</script>
+		
+		<!-- demo框架布局，可删除 -->
+		<div class="vvMenu">
+			<div><img width="100%" src="images/qrCode.jpg"></div>
+			<div class="vvDownLoad">
+				<a href="https://github.com/vvvui/vvvui">
+					<div class="vvDownLoadIcon"><img width="100%" src="../images/downloadIcon.png"></div>
+					<div class="vvDownLoadText">下载源码</div>
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="../vvDemo.js"></script>
+		
+	</body>
+</html>
