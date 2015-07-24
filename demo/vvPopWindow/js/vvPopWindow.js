@@ -33,13 +33,31 @@
 			}
 			this.maskW = dW;
 			this.maskH = dH;
+			var opww = this.getWidth(this.openWin);
+			var ophh = this.getHeight(this.openWin);
 			this.openWin.css({
 				"display"  : "block",
 				"position" : posotion,
-				"left"     : this.param.pos ? this.param.pos.left : (dW - this.openWin.width())/2,
-				"top"      : this.param.pos ? this.param.pos.top : scrollTop + (dH - this.openWin.height())/2,
+				"left"     : this.param.pos ? this.param.pos.left : (dW - opww)/2,
+				"top"      : this.param.pos ? this.param.pos.top : scrollTop + (dH - ophh)/2,
 				"z-index"  : 10001
 			});
+		},
+		getWidth : function(dom){
+			var opww = dom.width();
+			opww += parseInt(dom.css("padding-left"),10) || 0;
+			opww += parseInt(dom.css("padding-right"),10) || 0;
+			opww += parseInt(dom.css("margin-left"),10) || 0;
+			opww += parseInt(dom.css("margin-right"),10) || 0;
+			return opww;
+		},
+		getHeight : function(dom){
+			var ophh = dom.height();
+			ophh += parseInt(dom.css("padding-top"),10) || 0;
+			ophh += parseInt(dom.css("padding-bottom"),10) || 0;
+			ophh += parseInt(dom.css("margin-top"),10) || 0;
+			ophh += parseInt(dom.css("margin-bottom"),10) || 0;
+			return ophh;
 		},
 		createMaskLayer : function(){
 			var maskStyle = {
@@ -130,9 +148,11 @@
 			this.maskW = dW;
 			this.maskH = dH;
 			// this.mask.setMaskSize();
+			var opww = this.getWidth(this.openWin);
+			var ophh = this.getHeight(this.openWin);
 			this.openWin.css({
-				left : this.param.pos ? this.param.pos.left : (dW - this.openWin.width())/2,
-				top  : this.param.pos ? this.param.pos.top : scrollTop + (dH - this.openWin.height())/2
+				left : this.param.pos ? this.param.pos.left : (dW - opww)/2,
+				top  : this.param.pos ? this.param.pos.top : scrollTop + (dH - ophh)/2
 			});
 		},
 		touchDown : function(event,touchObj){
