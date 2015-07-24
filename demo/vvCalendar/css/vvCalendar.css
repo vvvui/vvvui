@@ -1,55 +1,148 @@
 /* CSS vvCalendar*/
-.vvCalendar { background-color:#f7f7f7; font-size:14px; overflow:hidden; position:relative; }
+.vvCalendar {
+	background-color : #f7f7f7;
+	font-size : 14px;
+	overflow  : hidden;
+	position  : relative;
+}
+
 .vvCalendar .header {
 	width  : 100%;
 	height : 50px;
 	color  : #ffffff;
 	background-color : #349b98;
 }
+
 .vvCalendar .header .title {
 	height  : 30px;
 	padding : 10px;
 	font-size : 16px;
 	line-height : 30px;
 }
-.vvCalendar .calenderContent { padding:2px; }
-.vvCalendar .calenderContent .dateControlBar { padding:5px 0; }
-.vvCalendar .calenderContent .dateControlBar .preMonth { float:left; width:25%; text-align:right; }
-.vvCalendar .calenderContent .dateControlBar .vvCalendarShow { float:left; width:50%; text-align:center; }
-.vvCalendar .calenderContent .dateControlBar .nextMonth { float:right; width:25%; text-align:left; }
 
-.vvCalendar .calenderContent .vvCalendarTitle { padding:0px; }
-.vvCalendar .calenderContent .titleTagBk { width:14.28%; float:left; height:30px; }
-.vvCalendar .calenderContent .titleTag { margin:2px; color:#bebebe; height:35px; position:relative; text-align:center; line-height:30px; border-radius:3px; }
-.vvCalendar .calenderContent .vvCalendarDate   { padding:5px 0px; }
-.vvCalendar .calenderContent .tagBk { width:14.28%; float:left; height:35px; margin:2px 0; }
-.vvCalendar .calenderContent .tag { margin:0 2px; background-color:#f7f7f7; color:#bebebe; height:35px; position:relative; text-align:center; line-height:35px; cursor:pointer; }
-.vvCalendar .calenderContent .tagVisible { color:#565656; }
-.vvCalendar .calenderContent .tagSelected { color:#349b98; }
+.vvCalendar .calenderContent {
+	padding : 2px;
+}
 
-.vvCalendar .calenderContent .dateShow { position:absolute; z-index:3; text-align:center; width:30px; height:30px; line-height:30px; border-radius:30px; border:0px; }
-.vvCalendar .calenderContent .dateShowSelected {  border:1px solid #349b98; background-color:#eaf3f2; width:28px; height:28px; line-height:28px; }
+.vvCalendar .calenderContent .dateControlBar {
+	padding : 5px 0;
+}
 
-/*clearfix*/
-.clearfix:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
-.clearfix {*zoom:1; }
+.vvCalendar .calenderContent .dateControlBar .preMonth {
+	float : left;
+	width : 25%;
+	text-align : right;
+}
+
+.vvCalendar .calenderContent .dateControlBar .vvCalendarShow {
+	float : left;
+	width : 50%;
+	text-align : center;
+}
+
+.vvCalendar .calenderContent .dateControlBar .nextMonth {
+	float : right;
+	width : 25%;
+	text-align : left;
+}
+
+.vvCalendar .calenderContent .vvCalendarTitle {
+	padding : 0px;
+}
+
+.vvCalendar .calenderContent .titleTagBk {
+	width  : 14.28%;
+	float  : left;
+	height : 30px;
+}
+
+.vvCalendar .calenderContent .titleTag {
+	margin : 2px;
+	color  : #bebebe;
+	width  : 30px;
+	height : 30px;
+	position : relative;
+	text-align : center;
+	line-height : 30px;
+	border-radius : 3px;
+}
+
+.vvCalendar .calenderContent .vvCalendarDate   {
+	padding : 5px 0px;
+}
+.vvCalendar .calenderContent .tagBk {
+	width  : 14.28%;
+	float  : left;
+	height : 35px;
+	margin : 2px 0;
+}
+
+.vvCalendar .calenderContent .tag {
+	margin : 0 2px;
+	background-color : #f7f7f7;
+	color : #bebebe;
+	height : 35px;
+	position : relative;
+	text-align : center;
+	line-height : 35px;
+	cursor : pointer;
+}
+
+.vvCalendar .calenderContent .tagVisible {
+	color : #565656;
+}
+
+.vvCalendar .calenderContent .tagSelected {
+	color : #349b98;
+}
+
+.vvCalendar .calenderContent .dateShow {
+	position : absolute;
+	z-index  : 3;
+	text-align : center;
+	width  : 30px;
+	height : 30px;
+	line-height : 30px;
+	border-radius : 30px;
+	border : 0px;
+}
+.vvCalendar .calenderContent .dateShowSelected {
+	border:1px solid #349b98;
+	background-color:#eaf3f2;
+	width  : 28px;
+	height : 28px;
+	line-height : 28px;
+}
+
+.clearfix:after {
+	content : ".";
+	display : block;
+	height  : 0;
+	visibility : hidden;
+	clear : both;
+}
+
+.clearfix {
+	*zoom : 1;
+}
 
 .triangleLeft {
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-right: 10px solid #31a9a5;
-    border-bottom: 5px solid transparent;
-	float:right;
-	margin-top:4px;
-	cursor:pointer;
+    width  : 0;
+    height : 0;
+    border-top : 5px solid transparent;
+    border-right : 10px solid #31a9a5;
+    border-bottom : 5px solid transparent;
+	float : right;
+	margin-top : 4px;
+	cursor : pointer;
 }
+
 .triangleRight {
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-left: 10px solid #31a9a5;
-    border-bottom: 5px solid transparent;
-	margin-top:4px;
-	cursor:pointer;
+    width : 0;
+    height : 0;
+    border-top : 5px solid transparent;
+    border-left : 10px solid #31a9a5;
+    border-bottom : 5px solid transparent;
+	margin-top : 4px;
+	cursor : pointer;
 }
