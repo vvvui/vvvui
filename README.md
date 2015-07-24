@@ -1,8 +1,7 @@
 # vvVui
 a light weight web frame
 
-<h3>vvvui demo </h3>
-(http://vvvui.github.io)<br>
+<h3>vvvui demo (http://vvvui.github.io)</h3>
 
 ---------- include modules ---------- <br>
 vvResizeObject <br>
