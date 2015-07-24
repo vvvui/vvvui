@@ -1,0 +1,38 @@
+.vvScroll {
+	width  : 100%;
+	height : 100%;
+}
+.pictureBk {
+	float : left;
+	width : 33.3%;
+	overflow : hidden;
+}
+.pictureContent {
+	padding  : 3px 3px 0px 3px;
+	overflow : hidden;
+}
+.pictureContent img {
+	width : 100%;
+}
+.uploadPictureBtn {
+	width  : 100%;
+	height : 100%;
+	overflow : hidden;
+	background-image : url(../../images/mag/addPictureBtn.png);
+	background-size : 100% 100%;
+	outline : none;
+}
+.files input {
+	width  : 100%;
+	height : 100%;
+	cursor : pointer;
+	filter : alpha(opacity=0);
+	opacity : 0;
+}
+.files, .files input {
+	outline : none;
+	hide-focus : expression(this.hideFocus=true);
+}
+.files input:active {
+	border : 0px;
+}

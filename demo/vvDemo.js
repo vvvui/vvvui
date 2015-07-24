@@ -10,5 +10,5 @@ if(vvMobile){
 	});
 }
 $(".backBtn").bindTouch(function(){
-	location.href = 'http://vvvui.github.io/';
+	location.href = '../../';
 });
