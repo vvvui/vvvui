@@ -22,6 +22,11 @@ $(function(){
 				name : "滚动区域",
 				picUrl : "demo/homePage/images/thumb/vvScroll.jpg",
 				link : "demo/vvScroll/"
+			},
+			vvPopWindow : {
+				name : "通用弹出层",
+				picUrl : "demo/homePage/images/thumb/vvPopWindow.jpg",
+				link : "demo/vvPopWindow/"
 			}
 		};
 		var inner = "";

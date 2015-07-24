@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>vvPopWindow</title>
+		<link href="../../core/vvCommon.css?v=2" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../../core/vvCommon.js"></script>
+		<script type="text/javascript" src="../../core/ext/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../../core/ext/vvExt.js"></script>
+		<!-- vvPopWindow -->
+		<link href="css/vvPopWindow.css?v=2" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/vvPopWindow.js?v=1"></script>
+	</head>
+	<body>
+		
+		<!-- 普通弹窗 -->
+		<div class="vvPopTheme1" id="pop1">
+			<div class="alertText">普通弹窗</div>
+			<div class="btnClear check">确定</div>
+		</div>
+		
+		<!-- 弹出loading -->
+		<div class="vvPopLoading" id="pop2">
+			<img src="images/loading.gif">
+		</div>
+		
+		<!-- 弹出文字 -->
+		<div class="vvPopText" id="pop3">
+			vvPopWindow是一个可以自定义弹出DOM的插件,想弹什么就弹什么，就是这么任性
+		</div>
+		
+		<!-- 弹出图片 -->
+		<div class="vvPopLoading" id="pop4">
+			<img src="../vvResizeObject/images/1.jpg">
+		</div>
+		
+		<!-- confirm -->
+		<div class="vvPopTheme2 w270" id="pop5">
+			<div class="alertText">confirm</div>
+			<div class="closeBtn clear"><img src="images/closeGrey.png"></div>
+			<div class="w270 clearFix">
+				<div class="btnCheck fl w125 check">确定</div>
+				<div class="btnClear fr w125 clear">取消</div>
+			</div>
+		</div>
+		
+		<!-- 关闭蒙层点击 -->
+		<div class="vvPopTheme1" id="pop6">
+			<div class="alertText">点击蒙层根本关闭不了</div>
+			<div class="btnClear check">确定</div>
+		</div>
+		
+		<!-- 背景透明弹窗 -->
+		<div class="vvPopTheme1" id="pop7" style="border : 1px solid #cccccc;">
+			<div class="alertText">背景透明弹窗</div>
+			<div class="btnClear check">确定</div>
+		</div>
+		
+		<!-- 可拖动弹窗 -->
+		<div class="vvPopTheme1" id="pop8">
+			<div class="move"><!-- class样式设为MOVE表示按住这个DOM可以拖动弹窗 -->
+				<div class="alertText">按住这里可以拖动额</div>
+				<div class="btnClear check">确定</div>
+			</div>
+		</div>
+		
+		<!-- 设定弹出位置 -->
+		<div class="vvPopTheme1" id="pop9">
+			<div class="alertText">设定弹出位置</div>
+			<div class="btnClear check">确定</div>
+		</div>
+		
+		<!-- 定时关闭 -->
+		<div class="vvPopTheme1" id="pop10">
+			<div class="alertText">3秒后关闭</div>
+			<div class="btnClear check">确定</div>
+		</div>
+	
+		<!-- vvPopWindow -->
+		<div class="vvScene">
+			<div class="clickBtnList" id="p1">普通弹窗</div>
+			<div class="clickBtnList" id="p2">弹出loading</div>
+			<div class="clickBtnList" id="p3">弹出文字</div>
+			<div class="clickBtnList" id="p4">弹出图片</div>
+			<div class="clickBtnList" id="p5">confirm</div>
+			<div class="clickBtnList" id="p6">关闭蒙层点击</div>
+			<div class="clickBtnList" id="p7">背景透明弹窗</div>
+			<div class="clickBtnList" id="p8">可拖动弹窗</div>
+			<div class="clickBtnList" id="p9">设定弹出位置</div>
+			<div class="clickBtnList" id="p10">定时关闭</div>
+		</div>
+		
+		<script>
+			/**
+				使用方法
+				1、新建一个DOM 给ID赋值 例 <div id="pop">这里随便放什么内容都可以</div>
+				2、var popWin = new uuPopWindow({
+						showDomId : "pop" // 第一步设置的ID
+				   });	
+				3、逻辑代码关闭弹窗 popWin.hide();
+				4、在第一步创建的DOM内设置class为clear的DOM 表示这个DOM为关闭按钮
+				例 : <div id="pop"><div class="clear">关闭</div></div>
+				5、在第一步创建的DOM内设置class为check的DOM 表示这个DOM为确定按钮
+				例 : <div id="pop"><div class="check">确定</div></div>
+			*/
+			$(function(){
+				
+				// 普通弹窗
+				var popWin1 = new vvPopWindow({
+					showDomId : "pop1"
+				});
+				popWin1.hide();
+				$("#p1").bindTouch(function(){
+					popWin1.show();
+				});
+				
+				// 弹出loading
+				var popWin2 = new vvPopWindow({
+					showDomId : "pop2"
+				});
+				popWin2.hide();
+				$("#p2").bindTouch(function(){
+					popWin2.show();
+				});
+				
+				// 弹出文字
+				var popWin3 = new vvPopWindow({
+					showDomId : "pop3"
+				});
+				popWin3.hide();
+				$("#p3").bindTouch(function(){
+					popWin3.show();
+				});
+				
+				// 弹出图片
+				var popWin4 = new vvPopWindow({
+					showDomId : "pop4"
+				});
+				popWin4.hide();
+				$("#p4").bindTouch(function(){
+					popWin4.show();
+				});
+				
+				// confirm
+				var popWin5 = new vvPopWindow({
+					showDomId : "pop5",
+					checkCallBack : function(){
+						console.log("checkCallBack"); // 点击确定按钮回调
+					},
+					clearCallBack : function(){
+						console.log("clearCallBack"); // 点击取消按钮回调
+					}
+				});
+				popWin5.hide();
+				$("#p5").bindTouch(function(){
+					popWin5.show();
+				});
+				
+				// 关闭蒙层点击
+				var popWin6 = new vvPopWindow({
+					showDomId : "pop6",
+					maskTouch : function(){}
+				});
+				popWin6.hide();
+				$("#p6").bindTouch(function(){
+					popWin6.show();
+				});
+				
+				// 背景透明弹窗
+				var popWin7 = new vvPopWindow({
+					showDomId : "pop7",
+					maskStyle : {
+						"background-color" : "#ffffff",
+						"opacity"  : 0, // 透明度
+						"z-index"  : 10000
+					}
+				});
+				popWin7.hide();
+				$("#p7").bindTouch(function(){
+					popWin7.show();
+				});
+				
+				// 可拖动弹窗
+				var popWin8 = new vvPopWindow({
+					showDomId : "pop8",
+					maskTouch : function(){}
+				});
+				popWin8.hide();
+				$("#p8").bindTouch(function(){
+					popWin8.show();
+				});
+				
+				// 设定弹出位置
+				var popWin9 = new vvPopWindow({
+					showDomId : "pop9",
+					pos : {
+						left : 200,
+						top : 200
+					}
+				});
+				popWin9.hide();
+				$("#p9").bindTouch(function(){
+					popWin9.show();
+				});
+				
+				// 定时关闭
+				var popWin10 = new vvPopWindow({
+					showDomId : "pop10"
+				});
+				popWin10.hide();
+				$("#p10").bindTouch(function(){
+					popWin10.show();
+					setTimeout(function(){
+						popWin10.hide();
+					},3000); // 定时3秒关闭
+				});
+				
+			});
+			
+		</script>
+		
+		<!-- demo框架布局，可删除 -->
+		<div class="vvMenu">
+			<div><img width="100%" src="images/qrCode.jpg"></div>
+			<div class="vvDownLoad">
+				<a href="https://github.com/vvvui/vvvui">
+					<div class="vvDownLoadIcon"><img width="100%" src="../images/downloadIcon.png"></div>
+					<div class="vvDownLoadText">下载源码</div>
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="../vvDemo.js"></script>
+	</body>
+</html>
