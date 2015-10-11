@@ -10,5 +10,4 @@ vvScroll <br>
 vvScrollbar <br>
 vvSlider <br>
 vvPopWindow <br>
-vvColorPicker <br>
 ---------- include modules end ---------- <br><br>
